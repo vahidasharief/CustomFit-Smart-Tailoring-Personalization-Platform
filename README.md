@@ -1,112 +1,99 @@
-# CustomFit - Tailoring Appointment System
+# 🧵 CustomFit – Smart Tailoring & Personalization Platform
 
-A modern web application for managing custom tailoring appointments, built with Flask and MySQL.
+> **“Fashion meets technology.”**  
+> CustomFit is a smart web platform that connects customers with local tailors to design, customize, and book fittings for their perfect outfit.  
+> The application combines modern UI design, intelligent data handling, and seamless backend logic to create a professional-grade tailoring experience.
 
-## Features
+---
 
-- Browse design catalog
-- Book appointments with expert tailors
-- Input custom measurements
-- Admin view for bookings
-- Modern, responsive UI with Tailwind CSS
+## 🌟 Overview
 
-## Setup Instructions
+CustomFit empowers users to explore curated outfit designs, choose from skilled tailors, input custom measurements, and schedule appointments — all from a single, elegant interface.
 
-### Prerequisites
+This project was designed as a **complete full-stack application** showcasing:
+- Responsive front-end development with **Tailwind CSS**
+- Back-end API integration via **Flask**
+- Database modeling with **MySQL**
+- Real-time appointment management and admin oversight
 
-- Python 3.11+
-- MySQL 8.0+
-- Virtual environment (recommended)
+---
 
-### Database Setup
+## 🧠 Core Features
 
-1. Create MySQL database and user:
+### 👗 Design Collection
+Explore a range of curated fashion designs — from classic suits to casual wear.  
+Each design card includes style details, pricing, and a booking link for quick scheduling.
 
+### 👔 Tailor Profiles
+Browse through professional tailors with verified experience.  
+Each tailor card includes their specialty, years of experience, and a direct “Book Appointment” option.
+
+### 📅 Smart Appointment Booking
+Users can:
+- Select designs and tailors
+- Enter measurements
+- Pick appointment date & time  
+Everything is validated both client- and server-side for a smooth experience.
+
+### 🧑‍💼 Admin Dashboard
+Admins can:
+- View all bookings in a clean tabular interface
+- Export booking details as CSV
+- Manage customer interactions efficiently
+
+### 🧭 Modern, Minimal UI
+Built with **Tailwind CSS**, featuring:
+- Soft shadows, rounded corners, and balanced typography
+- Consistent color palette for a professional aesthetic
+- Fully responsive design for mobile, tablet, and desktop
+
+---
+
+## 🧱 System Architecture
+
+Frontend (HTML, CSS, JS, Tailwind)
+↓
+Flask App (Python)
+↓
+MySQL Database
+
+
+- **Frontend:** Lightweight static pages enhanced with Tailwind utilities.
+- **Backend:** Flask serves routes, handles form submissions, and manages session state.
+- **Database:** MySQL stores users, designs, tailors, and bookings.
+
+---
+
+## 🧩 Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| **Frontend** | HTML5, CSS3, JavaScript, TailwindCSS |
+| **Backend** | Python 3.11, Flask |
+| **Database** | MySQL|
+| **Environment** | Virtualenv, dotenv |
+| **Data Serialization** | JSON |
+| **Version Control** | Git, GitHub |
+| **Deployment Ready** | Dockerized setup with Compose |
+| **Testing Tools** | Postman, Curl, Flask Debug Server |
+
+---
+
+## 💾 Database Design
+
+**Entities:**
+- `User`: Stores user credentials, names, and session info.
+- `Tailor`: Contains professional details (name, specialty, experience).
+- `Design`: Defines available outfit categories and metadata.
+- `Booking`: Stores customer measurements, design, tailor, date, and notes.
+
+**Relationships:**
+- A `User` can make multiple `Bookings`.
+- A `Booking` links one `User`, one `Design`, and one `Tailor`.
+
+**Schema Snapshot:**
 ```sql
-CREATE DATABASE customfit;
-CREATE USER 'customfit_user'@'localhost' IDENTIFIED BY 'your_password_here';
-GRANT ALL PRIVILEGES ON customfit.* TO 'customfit_user'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-2. Import schema and sample data:
-
-```bash
-mysql -u customfit_user -p customfit < migrations/schema.sql
-mysql -u customfit_user -p customfit < sample_data/insert_sample_tailors.sql
-```
-
-### Application Setup
-
-1. Clone the repository:
-
-```bash
-git clone [repository-url]
-cd customfit
-```
-
-2. Create and activate virtual environment:
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-4. Create .env file:
-
-```bash
-cp .env.example .env
-```
-
-Update the values in .env with your database credentials.
-
-5. Run the application:
-
-```bash
-python app.py
-```
-
-The application will be available at http://localhost:5000
-
-## API Endpoints
-
-- GET /api/designs - List all designs
-- GET /api/tailors - List all tailors
-- GET /api/bookings - List all bookings
-
-## Testing the API
-
-Sample curl commands:
-
-```bash
-# Get designs
-curl http://localhost:5000/api/designs
-
-# Get tailors
-curl http://localhost:5000/api/tailors
-
-# Get bookings
-curl http://localhost:5000/api/bookings
-```
-
-## Project Structure
-
-```
-customfit/
-├── app.py              # Main Flask application
-├── config.py           # Configuration settings
-├── models.py           # SQLAlchemy models
-├── static/
-│   ├── css/           # Custom styles
-│   ├── js/            # Client-side scripts
-│   └── images/        # Design images
-├── templates/          # Jinja2 templates
-├── migrations/         # Database migrations
-└── sample_data/       # Sample data files
-```
+users(id, name, email, password_hash, created_at)
+tailors(id, name, email, phone, specialty, experience_years)
+designs(id, name, category, description, price_range, image)
+bookings(id, user_id, design_id, tailor_id, appointment_date, appointment_time, measurements, notes)
