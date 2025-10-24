@@ -1,0 +1,52 @@
+{
+    "designs": [
+        {
+            "id": 1,
+            "name": "Classic Suit",
+            "description": "Traditional two-piece business suit with modern fit",
+            "image": "classic-suit.png",
+            "category": "Business",
+            "price_range": "Rs.2500-3000"
+        },
+        {
+            "id": 2,
+            "name": "Wedding Tuxedo",
+            "description": "Elegant black tuxedo with satin lapels",
+            "image": "tuxedo.png",
+            "category": "Formal",
+            "price_range": "Rs.3000-3300"
+        },
+        {
+            "id": 3,
+            "name": "Summer Linen",
+            "description": "Lightweight linen suit perfect for warm weather",
+            "image": "linen-suit.png",
+            "category": "Casual",
+            "price_range": "Rs.2500-3500"
+        },
+        {
+            "id": 4,
+            "name": "Navy Blazer",
+            "description": "Double-breasted blazer with peak lapels",
+            "image": "blazer.png",
+            "category": "Business",
+            "price_range": "Rs.3500-4000"
+        },
+        {
+            "id": 5,
+            "name": "Dinner Jacket",
+            "description": "Velvet dinner jacket for special occasions",
+            "image": "dinner.png",
+            "category": "Formal",
+            "price_range": "Rs.1500-2000"
+        },
+        {
+            "id": 6,
+            "name": "Sport Coat",
+            "description": "Casual sport coat in textured wool",
+            "image": "sport.png",
+            "category": "Casual",
+            "price_range": "Rs.2500-3500"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Our Designs{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold text-gray-900 mb-8">Our Design Collection</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for design in designs %}
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div class="aspect-w-3 aspect-h-4">
+            <img src="{{ url_for('static', filename='images/designs/' + design.image) }}" alt="{{ design.name }}"
+                class="w-full h-64 object-cover">
+        </div>
+        <div class="p-6">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900">{{ design.name }}</h3>
+                    <span
+                        class="inline-block mt-1 px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                        {{ design.category }}
+                    </span>
+                </div>
+                <span class="text-indigo-600 font-medium">{{ design.price_range }}</span>
+            </div>
+            <p class="text-gray-600 mt-4">{{ design.description }}</p>
+            <a href="{{ url_for('book', design_id=design.id) }}"
+                class="mt-4 inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                Book This Design
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

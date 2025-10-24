@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Our Tailors{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold text-gray-900 mb-8">Meet Our Expert Tailors</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for tailor in tailors %}
+    <div class="bg-white rounded-lg shadow-sm p-6">
+        <div class="flex items-start">
+            <div class="flex-1">
+                <h3 class="text-lg font-semibold text-gray-900">{{ tailor.name }}</h3>
+                <p class="text-gray-600 mt-1">{{ tailor.specialty }}</p>
+                <div class="mt-2 text-sm text-gray-500">
+                    <p>{{ tailor.experience_years }} years of experience</p>
+                </div>
+                <a href="{{ url_for('book', tailor_id=tailor.id) }}"
+                    class="mt-4 inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

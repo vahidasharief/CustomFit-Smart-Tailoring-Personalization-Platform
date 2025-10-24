@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Book Appointment{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">Book Your Fitting Appointment</h1>
+
+    <form action="{{ url_for('book') }}" method="POST" class="space-y-6">
+        <!-- Personal Information -->
+        <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Personal Information</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" name="name" id="name" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" name="email" id="email" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                    <input type="tel" name="phone" id="phone" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Design & Tailor Selection -->
+        <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Design & Tailor</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <label for="design_id" class="block text-sm font-medium text-gray-700">Select Design</label>
+                    <select name="design_id" id="design_id" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        {% for design in designs %}
+                        <option value="{{ design.id }}">{{ design.name }} - {{ design.price_range }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="tailor_id" class="block text-sm font-medium text-gray-700">Select Tailor</label>
+                    <select name="tailor_id" id="tailor_id" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        {% for tailor in tailors %}
+                        <option value="{{ tailor.id }}">{{ tailor.name }} - {{ tailor.specialty }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Measurements -->
+        <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Measurements (inches)</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="chest" class="block text-sm font-medium text-gray-700">Chest</label>
+                    <input type="number" name="chest" id="chest" step="0.1" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="waist" class="block text-sm font-medium text-gray-700">Waist</label>
+                    <input type="number" name="waist" id="waist" step="0.1" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="hips" class="block text-sm font-medium text-gray-700">Hips</label>
+                    <input type="number" name="hips" id="hips" step="0.1" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="length" class="block text-sm font-medium text-gray-700">Length</label>
+                    <input type="number" name="length" id="length" step="0.1" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointment -->
+        <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Appointment Details</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="appointment_date" class="block text-sm font-medium text-gray-700">Date</label>
+                    <input type="date" name="appointment_date" id="appointment_date" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label for="appointment_time" class="block text-sm font-medium text-gray-700">Time</label>
+                    <input type="time" name="appointment_time" id="appointment_time" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div>
+            <label for="notes" class="block text-sm font-medium text-gray-700">Additional Notes</label>
+            <textarea name="notes" id="notes" rows="3"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+        </div>
+
+        <div>
+            <button type="submit"
+                class="w-full bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Book Appointment
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

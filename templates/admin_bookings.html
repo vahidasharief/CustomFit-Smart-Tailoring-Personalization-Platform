@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Admin - Bookings{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded-lg shadow-sm p-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">All Bookings</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Customer
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Design & Tailor
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Appointment
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Measurements
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Notes
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for booking in bookings %}
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">{{ booking.name }}</div>
+                        <div class="text-sm text-gray-500">{{ booking.email }}</div>
+                        <div class="text-sm text-gray-500">{{ booking.phone }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">Design #{{ booking.design_id }}</div>
+                        <div class="text-sm text-gray-500">{{ booking.tailor.name }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">
+                            {{ booking.appointment_date.strftime('%Y-%m-%d') }}
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            {{ booking.appointment_time.strftime('%H:%M') }}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm text-gray-500">
+                            Chest: {{ booking.chest }}"<br>
+                            Waist: {{ booking.waist }}"<br>
+                            Hips: {{ booking.hips }}"<br>
+                            Length: {{ booking.length }}"
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm text-gray-500">
+                            {{ booking.notes or 'No notes' }}
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
