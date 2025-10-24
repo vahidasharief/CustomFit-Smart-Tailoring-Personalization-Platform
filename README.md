@@ -91,25 +91,9 @@ MySQL Database
 - A `User` can make multiple `Bookings`.
 - A `Booking` links one `User`, one `Design`, and one `Tailor`.
 
-**Schema Snapshot:**
-```sql
-users(id, name, email, password_hash, created_at)
-tailors(id, name, email, phone, specialty, experience_years)
-designs(id, name, category, description, price_range, image)
-bookings(id, user_id, design_id, tailor_id, appointment_date, appointment_time, measurements, notes)
+<img width="3195" height="1757" alt="image" src="https://github.com/user-attachments/assets/302dd8aa-f0f1-4142-98b3-81fd422859f2" />
 
 
-#### Homepage — Design Collection
-<img width="3195" height="1757" alt="image" src="https://github.com/user-attachments/assets/b0663506-1a56-4b66-bf67-f38a5d827b20" />
-
-
-
-#### Tailors Page
-<img width="3199" height="1821" alt="image" src="https://github.com/user-attachments/assets/660a58e4-edbd-4f0c-8729-dcff9e8a9c68" />
-
-#### Booking Form
-
-<img width="3199" height="1846" alt="image" src="https://github.com/user-attachments/assets/55f0df78-2ac9-49df-acfe-294e80a230f4" />
 
 
 
