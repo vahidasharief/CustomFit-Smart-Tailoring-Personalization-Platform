@@ -97,3 +97,14 @@ users(id, name, email, password_hash, created_at)
 tailors(id, name, email, phone, specialty, experience_years)
 designs(id, name, category, description, price_range, image)
 bookings(id, user_id, design_id, tailor_id, appointment_date, appointment_time, measurements, notes)
+
+**Image Screenshots**
+<img width="3195" height="1862" alt="image" src="https://github.com/user-attachments/assets/f4199d2f-c919-4fff-833f-0c482ffa6508" />
+
+<img width="3199" height="1821" alt="image" src="https://github.com/user-attachments/assets/660a58e4-edbd-4f0c-8729-dcff9e8a9c68" />
+
+<img width="3199" height="1846" alt="image" src="https://github.com/user-attachments/assets/55f0df78-2ac9-49df-acfe-294e80a230f4" />
+
+
+
+
