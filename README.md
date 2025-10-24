@@ -11,7 +11,7 @@
 CustomFit empowers users to explore curated outfit designs, choose from skilled tailors, input custom measurements, and schedule appointments — all from a single, elegant interface.
 
 This project was designed as a **complete full-stack application** showcasing:
-- Responsive front-end development with **Tailwind CSS**
+- Responsive front-end development
 - Back-end API integration via **Flask**
 - Database modeling with **MySQL**
 - Real-time appointment management and admin oversight
@@ -98,6 +98,7 @@ MySQL Database
 
 
 <img width="3199" height="1779" alt="image" src="https://github.com/user-attachments/assets/462d6ead-32a9-42db-9acc-f967bb0d6dc5" />
+
 
 
 
